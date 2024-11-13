@@ -306,87 +306,87 @@ namespace COCDonator
       // Match the color against known RGB values
       switch ((color.R, color.G, color.B))
       {
-        case var _ when IsColorMatch(color, 222, 208, 207): IncrementColorCounter("Barbarian"); return true;
-        case var _ when IsColorMatch(color, 188, 115, 83): IncrementColorCounter("Giant"); return true;
-        case var _ when IsColorMatch(color, 100, 92, 86): IncrementColorCounter("Wallbreaker"); return true;
-        case var _ when IsColorMatch(color, 109, 99, 93): IncrementColorCounter("Wallbreaker"); return true;
-        case var _ when IsColorMatch(color, 183, 164, 154): IncrementColorCounter("Balloon"); return true;
-        case var _ when IsColorMatch(color, 176, 151, 141): IncrementColorCounter("Balloon"); return true;
-        case var _ when IsColorMatch(color, 198, 160, 118): IncrementColorCounter("Healer"); return true;
-        case var _ when IsColorMatch(color, 193, 153, 108): IncrementColorCounter("Healer"); return true;
-        case var _ when IsColorMatch(color, 211, 203, 254): IncrementColorCounter("Pekka"); return true;
-        case var _ when IsColorMatch(color, 158, 217, 248): IncrementColorCounter("Pekka"); return true;
-        case var _ when IsColorMatch(color, 97, 65, 54): IncrementColorCounter("Miner"); return true;
-        case var _ when IsColorMatch(color, 148, 160, 193): IncrementColorCounter("Yeti"); return true;
-        case var _ when IsColorMatch(color, 254, 242, 250): IncrementColorCounter("Etitan"); return true;
-        case var _ when IsColorMatch(color, 252, 235, 244): IncrementColorCounter("Etitan"); return true;
-        case var _ when IsColorMatch(color, 16, 54, 89): IncrementColorCounter("Minion"); return true;
-        case var _ when IsColorMatch(color, 107, 38, 21): IncrementColorCounter("Valk"); return true;
-        case var _ when IsColorMatch(color, 126, 42, 20): IncrementColorCounter("Valk"); return true;
-        case var _ when IsColorMatch(color, 135, 43, 19): IncrementColorCounter("Valk"); return true;
-        case var _ when IsColorMatch(color, 101, 37, 21): IncrementColorCounter("Valk"); return true;
-        case var _ when IsColorMatch(color, 115, 38, 20): IncrementColorCounter("Valk"); return true;
-        case var _ when IsColorMatch(color, 100, 98, 233): IncrementColorCounter("Witch"); return true;
-        case var _ when IsColorMatch(color, 117, 139, 255): IncrementColorCounter("Witch"); return true;
-        case var _ when IsColorMatch(color, 53, 39, 92): IncrementColorCounter("Witch"); return true;
-        case var _ when IsColorMatch(color, 191, 173, 189): IncrementColorCounter("Lavahound"); return true;
-        case var _ when IsColorMatch(color, 72, 69, 76): IncrementColorCounter("Lavahound"); return true;
-        case var _ when IsColorMatch(color, 239, 239, 230): IncrementColorCounter("Icegolem"); return true;
-        case var _ when IsColorMatch(color, 212, 80, 255): IncrementColorCounter("Apprentice"); return true;
-        case var _ when IsColorMatch(color, 209, 90, 170): IncrementColorCounter("Archer"); return true;
-        case var _ when IsColorMatch(color, 119, 85, 56): IncrementColorCounter("Goblin"); return true;
-        case var _ when IsColorMatch(color, 111, 93, 88): IncrementColorCounter("Wizard"); return true;
-        case var _ when IsColorMatch(color, 152, 217, 246): IncrementColorCounter("Wizard"); return true;
-        case var _ when IsColorMatch(color, 93, 33, 92): IncrementColorCounter("Dragon"); return true;
-        case var _ when IsColorMatch(color, 90, 42, 111): IncrementColorCounter("Dragon"); return true;
-        case var _ when IsColorMatch(color, 106, 188, 101): IncrementColorCounter("Babydragon"); return true;
-        case var _ when IsColorMatch(color, 105, 185, 96): IncrementColorCounter("Babydragon"); return true;
-        case var _ when IsColorMatch(color, 123, 177, 252): IncrementColorCounter("Edragon"); return true;
-        case var _ when IsColorMatch(color, 145, 128, 113): IncrementColorCounter("Dragonrider"); return true;
-        case var _ when IsColorMatch(color, 59, 41, 52): IncrementColorCounter("Rootrider"); return true;
-        case var _ when IsColorMatch(color, 31, 25, 22): IncrementColorCounter("Hogrider"); return true;
-        case var _ when IsColorMatch(color, 39, 38, 39): IncrementColorCounter("Hogrider"); return true;
-        case var _ when IsColorMatch(color, 249, 255, 216): IncrementColorCounter("Hogrider"); return true;
-        case var _ when IsColorMatch(color, 73, 78, 162): IncrementColorCounter("Golem"); return true;
-        case var _ when IsColorMatch(color, 104, 118, 129): IncrementColorCounter("Golem"); return true;
-        case var _ when IsColorMatch(color, 149, 179, 185): IncrementColorCounter("Bowler"); return true;
-        case var _ when IsColorMatch(color, 85, 81, 130): IncrementColorCounter("Headhunter"); return true;
-        case var _ when IsColorMatch(color, 188, 113, 76): IncrementColorCounter("Druid"); return true;
-        case var _ when IsColorMatch(color, 169, 124, 124): IncrementColorCounter("Druid"); return true;
+        case var _ when IsColorMatch(color, 222, 208, 207): IncrementTroopCounter("Barbarian"); return true;
+        case var _ when IsColorMatch(color, 188, 115, 83): IncrementTroopCounter("Giant"); return true;
+        case var _ when IsColorMatch(color, 100, 92, 86): IncrementTroopCounter("Wallbreaker"); return true;
+        case var _ when IsColorMatch(color, 109, 99, 93): IncrementTroopCounter("Wallbreaker"); return true;
+        case var _ when IsColorMatch(color, 183, 164, 154): IncrementTroopCounter("Balloon"); return true;
+        case var _ when IsColorMatch(color, 176, 151, 141): IncrementTroopCounter("Balloon"); return true;
+        case var _ when IsColorMatch(color, 198, 160, 118): IncrementTroopCounter("Healer"); return true;
+        case var _ when IsColorMatch(color, 193, 153, 108): IncrementTroopCounter("Healer"); return true;
+        case var _ when IsColorMatch(color, 211, 203, 254): IncrementTroopCounter("Pekka"); return true;
+        case var _ when IsColorMatch(color, 158, 217, 248): IncrementTroopCounter("Pekka"); return true;
+        case var _ when IsColorMatch(color, 97, 65, 54): IncrementTroopCounter("Miner"); return true;
+        case var _ when IsColorMatch(color, 148, 160, 193): IncrementTroopCounter("Yeti"); return true;
+        case var _ when IsColorMatch(color, 254, 242, 250): IncrementTroopCounter("Etitan"); return true;
+        case var _ when IsColorMatch(color, 252, 235, 244): IncrementTroopCounter("Etitan"); return true;
+        case var _ when IsColorMatch(color, 16, 54, 89): IncrementTroopCounter("Minion"); return true;
+        case var _ when IsColorMatch(color, 107, 38, 21): IncrementTroopCounter("Valk"); return true;
+        case var _ when IsColorMatch(color, 126, 42, 20): IncrementTroopCounter("Valk"); return true;
+        case var _ when IsColorMatch(color, 135, 43, 19): IncrementTroopCounter("Valk"); return true;
+        case var _ when IsColorMatch(color, 101, 37, 21): IncrementTroopCounter("Valk"); return true;
+        case var _ when IsColorMatch(color, 115, 38, 20): IncrementTroopCounter("Valk"); return true;
+        case var _ when IsColorMatch(color, 100, 98, 233): IncrementTroopCounter("Witch"); return true;
+        case var _ when IsColorMatch(color, 117, 139, 255): IncrementTroopCounter("Witch"); return true;
+        case var _ when IsColorMatch(color, 53, 39, 92): IncrementTroopCounter("Witch"); return true;
+        case var _ when IsColorMatch(color, 191, 173, 189): IncrementTroopCounter("Lavahound"); return true;
+        case var _ when IsColorMatch(color, 72, 69, 76): IncrementTroopCounter("Lavahound"); return true;
+        case var _ when IsColorMatch(color, 239, 239, 230): IncrementTroopCounter("Icegolem"); return true;
+        case var _ when IsColorMatch(color, 212, 80, 255): IncrementTroopCounter("Apprentice"); return true;
+        case var _ when IsColorMatch(color, 209, 90, 170): IncrementTroopCounter("Archer"); return true;
+        case var _ when IsColorMatch(color, 119, 85, 56): IncrementTroopCounter("Goblin"); return true;
+        case var _ when IsColorMatch(color, 111, 93, 88): IncrementTroopCounter("Wizard"); return true;
+        case var _ when IsColorMatch(color, 152, 217, 246): IncrementTroopCounter("Wizard"); return true;
+        case var _ when IsColorMatch(color, 93, 33, 92): IncrementTroopCounter("Dragon"); return true;
+        case var _ when IsColorMatch(color, 90, 42, 111): IncrementTroopCounter("Dragon"); return true;
+        case var _ when IsColorMatch(color, 106, 188, 101): IncrementTroopCounter("Babydragon"); return true;
+        case var _ when IsColorMatch(color, 105, 185, 96): IncrementTroopCounter("Babydragon"); return true;
+        case var _ when IsColorMatch(color, 123, 177, 252): IncrementTroopCounter("Edragon"); return true;
+        case var _ when IsColorMatch(color, 145, 128, 113): IncrementTroopCounter("Dragonrider"); return true;
+        case var _ when IsColorMatch(color, 59, 41, 52): IncrementTroopCounter("Rootrider"); return true;
+        case var _ when IsColorMatch(color, 31, 25, 22): IncrementTroopCounter("Hogrider"); return true;
+        case var _ when IsColorMatch(color, 39, 38, 39): IncrementTroopCounter("Hogrider"); return true;
+        case var _ when IsColorMatch(color, 249, 255, 216): IncrementTroopCounter("Hogrider"); return true;
+        case var _ when IsColorMatch(color, 73, 78, 162): IncrementTroopCounter("Golem"); return true;
+        case var _ when IsColorMatch(color, 104, 118, 129): IncrementTroopCounter("Golem"); return true;
+        case var _ when IsColorMatch(color, 149, 179, 185): IncrementTroopCounter("Bowler"); return true;
+        case var _ when IsColorMatch(color, 85, 81, 130): IncrementTroopCounter("Headhunter"); return true;
+        case var _ when IsColorMatch(color, 188, 113, 76): IncrementTroopCounter("Druid"); return true;
+        case var _ when IsColorMatch(color, 169, 124, 124): IncrementTroopCounter("Druid"); return true;
 
-        case var _ when IsColorMatch(color, 209, 174, 164): IncrementColorCounter("Superwallbreaker"); return true;
-        case var _ when IsColorMatch(color, 196, 175, 193): IncrementColorCounter("Superwitch"); return true;
+        case var _ when IsColorMatch(color, 209, 174, 164): IncrementTroopCounter("Superwallbreaker"); return true;
+        case var _ when IsColorMatch(color, 196, 175, 193): IncrementTroopCounter("Superwitch"); return true;
 
-        case var _ when IsColorMatch(color, 68, 236, 255): IncrementColorCounter("Lightning"); return true;
-        case var _ when IsColorMatch(color, 249, 249, 252): IncrementColorCounter("Rage"); return true;
-        case var _ when IsColorMatch(color, 212, 219, 238): IncrementColorCounter("Rage"); return true;
-        case var _ when IsColorMatch(color, 88, 252, 255): IncrementColorCounter("Freeze"); return true;
-        case var _ when IsColorMatch(color, 138, 210, 192): IncrementColorCounter("Invis"); return true;
-        case var _ when IsColorMatch(color, 240, 118, 18): IncrementColorCounter("Poison"); return true;
-        case var _ when IsColorMatch(color, 254, 217, 242): IncrementColorCounter("Haste"); return true;
-        case var _ when IsColorMatch(color, 226, 217, 246): IncrementColorCounter("Bats"); return true;
-        case var _ when IsColorMatch(color, 138, 138, 181): IncrementColorCounter("Bats"); return true;
-        case var _ when IsColorMatch(color, 200, 181, 139): IncrementColorCounter("Heal"); return true;
-        case var _ when IsColorMatch(color, 247, 239, 196): IncrementColorCounter("Heal"); return true;
-        case var _ when IsColorMatch(color, 255, 255, 239): IncrementColorCounter("Jump"); return true;
-        case var _ when IsColorMatch(color, 250, 255, 230): IncrementColorCounter("Jump"); return true;
-        case var _ when IsColorMatch(color, 148, 167, 204): IncrementColorCounter("Clone"); return true;
-        case var _ when IsColorMatch(color, 222, 149, 191): IncrementColorCounter("Recall"); return true;
-        case var _ when IsColorMatch(color, 255, 252, 255): IncrementColorCounter("Recall"); return true;
-        case var _ when IsColorMatch(color, 81, 65, 52): IncrementColorCounter("Earthquake"); return true;
-        case var _ when IsColorMatch(color, 69, 60, 51): IncrementColorCounter("Earthquake"); return true;
-        case var _ when IsColorMatch(color, 203, 53, 50): IncrementColorCounter("Skeleton"); return true;
-        case var _ when IsColorMatch(color, 245, 160, 153): IncrementColorCounter("Skeleton"); return true;
-        case var _ when IsColorMatch(color, 238, 126, 119): IncrementColorCounter("Skeleton"); return true;
-        case var _ when IsColorMatch(color, 145, 178, 84): IncrementColorCounter("Overgrowth"); return true;
-        case var _ when IsColorMatch(color, 51, 23, 15): IncrementColorCounter("Overgrowth"); return true;
-        case var _ when IsColorMatch(color, 73, 56, 36): IncrementColorCounter("Overgrowth"); return true;
+        case var _ when IsColorMatch(color, 68, 236, 255): IncrementSpellCounter("Lightning"); return true;
+        case var _ when IsColorMatch(color, 249, 249, 252): IncrementSpellCounter("Rage"); return true;
+        case var _ when IsColorMatch(color, 212, 219, 238): IncrementSpellCounter("Rage"); return true;
+        case var _ when IsColorMatch(color, 88, 252, 255): IncrementSpellCounter("Freeze"); return true;
+        case var _ when IsColorMatch(color, 138, 210, 192): IncrementSpellCounter("Invis"); return true;
+        case var _ when IsColorMatch(color, 240, 118, 18): IncrementSpellCounter("Poison"); return true;
+        case var _ when IsColorMatch(color, 254, 217, 242): IncrementSpellCounter("Haste"); return true;
+        case var _ when IsColorMatch(color, 226, 217, 246): IncrementSpellCounter("Bats"); return true;
+        case var _ when IsColorMatch(color, 138, 138, 181): IncrementSpellCounter("Bats"); return true;
+        case var _ when IsColorMatch(color, 200, 181, 139): IncrementSpellCounter("Heal"); return true;
+        case var _ when IsColorMatch(color, 247, 239, 196): IncrementSpellCounter("Heal"); return true;
+        case var _ when IsColorMatch(color, 255, 255, 239): IncrementSpellCounter("Jump"); return true;
+        case var _ when IsColorMatch(color, 250, 255, 230): IncrementSpellCounter("Jump"); return true;
+        case var _ when IsColorMatch(color, 148, 167, 204): IncrementSpellCounter("Clone"); return true;
+        case var _ when IsColorMatch(color, 222, 149, 191): IncrementSpellCounter("Recall"); return true;
+        case var _ when IsColorMatch(color, 255, 252, 255): IncrementSpellCounter("Recall"); return true;
+        case var _ when IsColorMatch(color, 81, 65, 52): IncrementSpellCounter("Earthquake"); return true;
+        case var _ when IsColorMatch(color, 69, 60, 51): IncrementSpellCounter("Earthquake"); return true;
+        case var _ when IsColorMatch(color, 203, 53, 50): IncrementSpellCounter("Skeleton"); return true;
+        case var _ when IsColorMatch(color, 245, 160, 153): IncrementSpellCounter("Skeleton"); return true;
+        case var _ when IsColorMatch(color, 238, 126, 119): IncrementSpellCounter("Skeleton"); return true;
+        case var _ when IsColorMatch(color, 145, 178, 84): IncrementSpellCounter("Overgrowth"); return true;
+        case var _ when IsColorMatch(color, 51, 23, 15): IncrementSpellCounter("Overgrowth"); return true;
+        case var _ when IsColorMatch(color, 73, 56, 36): IncrementSpellCounter("Overgrowth"); return true;
 
-        case var _ when IsColorMatch(color, 91, 43, 13): IncrementColorCounter("Flameflinger"); return true;
-        case var _ when IsColorMatch(color, 235, 118, 122): IncrementColorCounter("Blimp"); return true;
-        case var _ when IsColorMatch(color, 75, 75, 84): IncrementColorCounter("Loglauncher"); return true;
-        case var _ when IsColorMatch(color, 75, 74, 78): IncrementColorCounter("Loglauncher"); return true;
-        case var _ when IsColorMatch(color, 70, 67, 69): IncrementColorCounter("Loglauncher"); return true;
+        case var _ when IsColorMatch(color, 91, 43, 13): IncrementSiegeCounter("Flameflinger"); return true;
+        case var _ when IsColorMatch(color, 235, 118, 122): IncrementSiegeCounter("Blimp"); return true;
+        case var _ when IsColorMatch(color, 75, 75, 84): IncrementSiegeCounter("Loglauncher"); return true;
+        case var _ when IsColorMatch(color, 75, 74, 78): IncrementSiegeCounter("Loglauncher"); return true;
+        case var _ when IsColorMatch(color, 70, 67, 69): IncrementSiegeCounter("Loglauncher"); return true;
 
         default:
           Console.WriteLine("Unknown color encountered: " + color);
@@ -531,12 +531,30 @@ namespace COCDonator
       return null;
     }
 
-    void IncrementColorCounter(string key)
+    void IncrementTroopCounter(string key)
     {
       if (troopColors.ContainsKey(key))
       {
         var (color, count) = troopColors[key];
         troopColors[key] = (color, count + 1);
+      }
+    }
+
+    void IncrementSpellCounter(string key)
+    {
+      if (spellColors.ContainsKey(key))
+      {
+        var (color, count) = spellColors[key];
+        spellColors[key] = (color, count + 1);
+      }
+    }
+
+    void IncrementSiegeCounter(string key)
+    {
+      if (siegeColors.ContainsKey(key))
+      {
+        var (color, count) = siegeColors[key];
+        siegeColors[key] = (color, count + 1);
       }
     }
 
