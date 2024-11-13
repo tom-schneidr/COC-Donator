@@ -159,12 +159,15 @@ namespace COCDonator
         }
         if (moveDirection)
         {
-          moveDirection = IsGray(fullscreen.GetPixel(700, 160));
-          if (moveDirection) NextDonationUp();
-        } else {
-          moveDirection = !IsGray(fullscreen.GetPixel(700, 890));
-          if (!moveDirection) NextDonationDown();
+          moveDirection = NextDonationUp(fullscreen.GetPixel(700, 150));
+          if (!moveDirection) NextDonationDown(fullscreen.GetPixel(700, 880));
         }
+        else
+        {
+          moveDirection = !NextDonationDown(fullscreen.GetPixel(700, 880));
+          if (moveDirection) NextDonationUp(fullscreen.GetPixel(700, 150));
+        }
+
         if (TroopsToRecruit > 5)
         {
           NavigateToTrainTroops();
@@ -203,7 +206,7 @@ namespace COCDonator
         FillSpells(x, y + 400);
         ClickPosition(1642, 72);
       }
-      else if (fullscreen.GetPixel(1530, 800).R == 177) // 1643, 135 // 251, 146, 149
+      else if (fullscreen.GetPixel(1530, 800).R == 177 || fullscreen.GetPixel(1530, 800).R == 173) // 1643, 135 // 251, 146, 149
       {
         y += 89;
         FillTroops(x, y);
@@ -240,29 +243,28 @@ namespace COCDonator
           if (CountColor(fullPixel))
             ClickPosition(x, y);
           else break;
-          Console.WriteLine(sessionDonations++);
+          Console.WriteLine(++sessionDonations);
           TroopsToRecruit++;
           Thread.Sleep(50);
 
           fullscreen = CaptureScreen(bounds);
           fullPixel = fullscreen.GetPixel(x, y);
+          // Move to the next position in a zigzag pattern
+          if (movingDown)
+          {
+            // Move to the second row
+            y += 163;
+            movingDown = false;
+          }
+          else
+          {
+            // Move back to the first row and to the next column
+            y -= 163;
+            x += 127;
+            movingDown = true;
+          }
+          counter++;
         }
-
-        // Move to the next position in a zigzag pattern
-        if (movingDown)
-        {
-          // Move to the second row
-          y += 163;
-          movingDown = false;
-        }
-        else
-        {
-          // Move back to the first row and to the next column
-          y -= 163;
-          x += 127;
-          movingDown = true;
-        }
-        counter++;
       }
     }
 
@@ -289,7 +291,7 @@ namespace COCDonator
           if (CountColor(fullPixel))
             ClickPosition(x, y);
           else break;
-          Console.WriteLine(sessionDonations++);
+          Console.WriteLine(++sessionDonations);
           TroopsToRecruit++;
           Thread.Sleep(50);
 
@@ -328,10 +330,13 @@ namespace COCDonator
         case var _ when IsColorMatch(color, 115, 38, 20): IncrementTroopCounter("Valk"); return true;
         case var _ when IsColorMatch(color, 100, 98, 233): IncrementTroopCounter("Witch"); return true;
         case var _ when IsColorMatch(color, 117, 139, 255): IncrementTroopCounter("Witch"); return true;
+        case var _ when IsColorMatch(color, 40, 30, 72): IncrementTroopCounter("Witch"); return true;
+        case var _ when IsColorMatch(color, 49, 38, 87): IncrementTroopCounter("Witch"); return true;
         case var _ when IsColorMatch(color, 53, 39, 92): IncrementTroopCounter("Witch"); return true;
         case var _ when IsColorMatch(color, 191, 173, 189): IncrementTroopCounter("Lavahound"); return true;
         case var _ when IsColorMatch(color, 72, 69, 76): IncrementTroopCounter("Lavahound"); return true;
         case var _ when IsColorMatch(color, 239, 239, 230): IncrementTroopCounter("Icegolem"); return true;
+        case var _ when IsColorMatch(color, 232, 231, 220): IncrementTroopCounter("Icegolem"); return true;
         case var _ when IsColorMatch(color, 212, 80, 255): IncrementTroopCounter("Apprentice"); return true;
         case var _ when IsColorMatch(color, 209, 90, 170): IncrementTroopCounter("Archer"); return true;
         case var _ when IsColorMatch(color, 119, 85, 56): IncrementTroopCounter("Goblin"); return true;
@@ -363,6 +368,7 @@ namespace COCDonator
         case var _ when IsColorMatch(color, 88, 252, 255): IncrementSpellCounter("Freeze"); return true;
         case var _ when IsColorMatch(color, 138, 210, 192): IncrementSpellCounter("Invis"); return true;
         case var _ when IsColorMatch(color, 240, 118, 18): IncrementSpellCounter("Poison"); return true;
+        case var _ when IsColorMatch(color, 244, 124, 18): IncrementSpellCounter("Poison"); return true;
         case var _ when IsColorMatch(color, 254, 217, 242): IncrementSpellCounter("Haste"); return true;
         case var _ when IsColorMatch(color, 226, 217, 246): IncrementSpellCounter("Bats"); return true;
         case var _ when IsColorMatch(color, 138, 138, 181): IncrementSpellCounter("Bats"); return true;
@@ -441,24 +447,24 @@ namespace COCDonator
 
         if (count != 0)
         {
-          Point? position = SearchRows(0, key);
+          Point? position = SearchRows(0, key, troopColors);
 
           if (position == null)
           {
-            position = SearchRows(1, key);
+            position = SearchRows(1, key, troopColors);
           }
 
           if (position == null)
           {
             ScrollToRight();
-            position = SearchRows(0, key);
+            position = SearchRows(0, key, troopColors);
           }
 
           if (position == null)
           {
-            position = SearchRows(1, key);
+            position = SearchRows(1, key, troopColors);
           }
-      
+
           if (position == null)
           {
             Console.WriteLine("Troop " + key + " not found when trying to recruit");
@@ -487,11 +493,11 @@ namespace COCDonator
 
         if (count != 0)
         {
-          Point? position = SearchRows(0, key);
+          Point? position = SearchRows(0, key, spellColors);
 
           if (position == null)
           {
-            position = SearchRows(1, key);
+            position = SearchRows(1, key, spellColors);
           }
 
           if (position == null)
@@ -506,12 +512,11 @@ namespace COCDonator
           }
 
           spellColors[key] = (spellColors[key].Color, 0);
-          ScrollToLeft();
         }
       }
     }
 
-    Point? SearchRows(int rowNum, string key)
+    Point? SearchRows(int rowNum, string key, Dictionary<string, (Color Color, int Count)> colorDictionary)
     {
       int y = 646 + (rowNum * 187);
       Rectangle captureArea = new Rectangle(0, y, 1920, 1);
@@ -521,8 +526,8 @@ namespace COCDonator
       for (int i = 0; i < image.Width; i++)
       {
         Color pixelColor = image.GetPixel(i, 0);
-        
-        if (pixelColor == troopColors[key].Color)
+
+        if (colorDictionary.ContainsKey(key) && pixelColor == colorDictionary[key].Color)
         {
           Console.WriteLine($"{key} found at X position {i}: RGB = {pixelColor.R}, {pixelColor.G}, {pixelColor.B}");
           return new Point(i, y);
@@ -561,7 +566,7 @@ namespace COCDonator
     private void ClickPosition(int x, int y)
     {
       System.Windows.Forms.Cursor.Position = new Point(x, y);
-      Thread.Sleep(500);
+      Thread.Sleep(200);
       mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
       mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
       Thread.Sleep(500);
@@ -569,7 +574,6 @@ namespace COCDonator
 
     public static void Drag(int startX, int startY, int endX, int endY)
     {
-      Thread.Sleep(100);
       SetCursorPosition(startX, startY);
       Thread.Sleep(100);
       mouse_event(MOUSEEVENTF_LEFTDOWN, startX, startY, 0, 0);
@@ -605,14 +609,26 @@ namespace COCDonator
       return bitmap;
     }
 
-    void NextDonationUp()
+    bool NextDonationUp(Color color)
     {
-      ClickPosition(700, 160);
+      if (color.R == 163 && color.G == 215 && color.B == 17)
+      {
+        ClickPosition(700, 150);
+        Thread.Sleep(500);
+        return true;
+      }
+      return false;
     }
 
-    void NextDonationDown()
+    bool NextDonationDown(Color color)
     {
-      ClickPosition(700, 890);
+      if (color.R == 162 && color.G == 213 && color.B == 15)
+      {
+        ClickPosition(700, 880);
+        Thread.Sleep(500);
+        return true;
+      }
+      return false;
     }
 
     void GetPictures()
