@@ -253,5 +253,8 @@
   <ItemGroup>
     <None Include="imgs\superwitch.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\exit_button.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

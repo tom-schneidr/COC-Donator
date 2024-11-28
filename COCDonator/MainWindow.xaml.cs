@@ -1,4 +1,5 @@
-﻿using System;
+﻿using COCDonator.Properties;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
@@ -66,54 +67,57 @@ namespace COCDonator
 
     private Dictionary<string, (Color Color, int Count)> troopColors = new Dictionary<string, (Color Color, int Count)>
     {
-      { "Barbarian", (Color.FromArgb(188, 103, 82), 0) },
-      { "Giant", (Color.FromArgb(244, 153, 112), 0) },
-      { "Wallbreaker", (Color.FromArgb(66, 63, 58), 0) },
-      { "Balloon", (Color.FromArgb(237, 219, 189), 0) },
-      { "Healer", (Color.FromArgb(255, 208, 181), 0) },
-      { "Pekka", (Color.FromArgb(20, 16, 20), 0) },
-      { "Miner", (Color.FromArgb(255, 212, 173), 0) },
-      { "Yeti", (Color.FromArgb(79, 79, 110), 0) },
-      { "Etitan", (Color.FromArgb(117, 87, 94), 0) },
-      { "Minion", (Color.FromArgb(62, 146, 212), 0) },
-      { "Valk", (Color.FromArgb(194, 125, 105), 0) },
-      { "Witch", (Color.FromArgb(197, 78, 157), 0) },
-      { "Lavahound", (Color.FromArgb(88, 89, 98), 0) },
-      { "Icegolem", (Color.FromArgb(149, 146, 154), 0) },
-      { "Apprentice", (Color.FromArgb(140, 28, 130), 0) },
-      { "Archer", (Color.FromArgb(151, 101, 89), 0) },
-      { "Goblin", (Color.FromArgb(91, 115, 42), 0) },
-      { "Superwallbreaker", (Color.FromArgb(92, 75, 64), 0) },
-      { "Wizard", (Color.FromArgb(220, 154, 128), 0) },
-      { "Dragon", (Color.FromArgb(255, 117, 183), 0) },
-      { "Babydragon", (Color.FromArgb(65, 32, 28), 0) },
-      { "Edragon", (Color.FromArgb(48, 95, 170), 0) },
-      { "Dragonrider", (Color.FromArgb(74, 30, 27), 0) },
-      { "Rootrider", (Color.FromArgb(209, 108, 82), 0) },
-      { "Hogrider", (Color.FromArgb(39, 34, 31), 0) },
-      { "Golem", (Color.FromArgb(100, 92, 84), 0) },
-      { "Bowler", (Color.FromArgb(137, 126, 250), 0) },
-      { "Headhunter", (Color.FromArgb(13, 13, 13), 0) },
-      { "Druid", (Color.FromArgb(143, 48, 36), 0) }
+      { "Barbarian", (Color.FromArgb(240, 158, 113), 0) },
+      { "Giant", (Color.FromArgb(255, 180, 129), 0) },
+      { "Wallbreaker", (Color.FromArgb(31, 29, 24), 0) },
+      { "Balloon", (Color.FromArgb(126, 95, 83), 0) },
+      { "Healer", (Color.FromArgb(255, 235, 216), 0) },
+      { "Pekka", (Color.FromArgb(90, 57, 135), 0) },
+      { "Miner", (Color.FromArgb(132, 103, 94), 0) },
+      { "Yeti", (Color.FromArgb(81, 85, 118), 0) },
+      { "Archer", (Color.FromArgb(210, 58, 118), 0) },
+      { "Goblin", (Color.FromArgb(180, 207, 104), 0) },
+      { "Superwallbreaker", (Color.FromArgb(255, 255, 245), 0) },
+      { "Wizard", (Color.FromArgb(255, 220, 196), 0) },
+      { "Dragon", (Color.FromArgb(67, 25, 82), 0) },
+      { "Babydragon", (Color.FromArgb(102, 55, 48), 0) },
+      { "Edragon", (Color.FromArgb(50, 84, 131), 0) },
+      { "Dragonrider", (Color.FromArgb(135, 76, 46), 0) },
+      { "Etitan", (Color.FromArgb(71, 63, 61), 0) },
+      { "Minion", (Color.FromArgb(39, 39, 39), 0) },
+      { "Valk", (Color.FromArgb(81, 34, 20), 0) },
+      { "Witch", (Color.FromArgb(48, 50, 105), 0) },
+      { "Lavaloon", (Color.FromArgb(101, 100, 108), 0) },
+      { "Icegolem", (Color.FromArgb(238, 236, 228), 0) },
+      { "Apprentice", (Color.FromArgb(216, 90, 255), 0) },
+      { "Rootrider", (Color.FromArgb(116, 60, 54), 0) },
+      { "Hogrider", (Color.FromArgb(86, 53, 45), 0) },
+      { "Golem", (Color.FromArgb(168, 51, 159), 0) },
+      { "Superwitch", (Color.FromArgb(255, 162, 73), 0) },
+      { "Bowler", (Color.FromArgb(158, 139, 248), 0) },
+      { "Headhunter", (Color.FromArgb(15, 15, 17), 0) },
+      { "Druid", (Color.FromArgb(235, 136, 79), 0) }
     };
+
 
     private Dictionary<string, (Color Color, int Count)> spellColors = new Dictionary<string, (Color Color, int Count)>
     {
-      { "Lightning", (Color.FromArgb(59, 218, 255), 0) },
-      { "Rage", (Color.FromArgb(80, 50, 120), 0) },
-      { "Freeze", (Color.FromArgb(139, 221, 253), 0) },
-      { "Invis", (Color.FromArgb(125, 204, 178), 0) },
-      { "Poison", (Color.FromArgb(255, 216, 27), 0) },
-      { "Haste", (Color.FromArgb(255, 240, 253), 0) },
-      { "Bats", (Color.FromArgb(145, 108, 169), 0) },
-      { "Heal", (Color.FromArgb(207, 140, 62), 0) },
-      { "Jump", (Color.FromArgb(95, 206, 21), 0) },
-      { "Clone", (Color.FromArgb(27, 188, 205), 0) },
-      { "Recall", (Color.FromArgb(251, 77, 108), 0) },
-      { "Earthquake", (Color.FromArgb(230, 172, 121), 0) },
-      { "Skeleton", (Color.FromArgb(172, 41, 28), 0) },
-      { "Overgrowth", (Color.FromArgb(243, 255, 132), 0) }
+      { "Lightning", (Color.FromArgb(15, 231, 255), 0) },
+      { "Rage", (Color.FromArgb(102, 43, 157), 0) },
+      { "Freeze", (Color.FromArgb(77, 224, 255), 0) },
+      { "Invis", (Color.FromArgb(122, 244, 188), 0) },
+      { "Poison", (Color.FromArgb(254, 196, 163), 0) },
+      { "Haste", (Color.FromArgb(255, 117, 182), 0) },
+      { "Bats", (Color.FromArgb(72, 46, 113), 0) },
+      { "Heal", (Color.FromArgb(242, 203, 100), 0) },
+      { "Jump", (Color.FromArgb(81, 208, 19), 0) },
+      { "Clone", (Color.FromArgb(43, 236, 231), 0) },
+      { "Recall", (Color.FromArgb(253, 118, 154), 0) },
+      { "Earthquake", (Color.FromArgb(199, 146, 97), 0) },
+      { "Skeleton", (Color.FromArgb(219, 129, 118), 0) },
+      { "Overgrowth", (Color.FromArgb(103, 120, 25), 0) }
     };
+
 
     private Dictionary<string, (Color Color, int Count)> siegeColors = new Dictionary<string, (Color Color, int Count)>
     {
@@ -128,10 +132,26 @@ namespace COCDonator
     {
       InitializeComponent();
 
+      //Thread.Sleep(5000);
+      //var keys = troopColors.Keys.ToList();
+
+      //for (int j = 0; j < keys.Count; j++)
+      //{
+      //  string key = keys[j];
+      //  IncrementTroopCounter(key);
+      //}
+
+      //keys = spellColors.Keys.ToList();
+
+      //for (int j = 0; j < keys.Count; j++)
+      //{
+      //  string key = keys[j];
+      //  IncrementSpellCounter(key);
+      //}
+      //TrainTroops();
+      //NavigateFromTroopsToTrainSpells();
+      //TrainSpells();
       Task.Run(() => FindDonateButton());
-      //Thread.Sleep(5000);
-      //Task.Run(() => TrainTroops());
-      //Thread.Sleep(5000);
       //GetPictures();
     }
 
@@ -160,11 +180,11 @@ namespace COCDonator
         if (moveDirection)
         {
           moveDirection = NextDonationUp(fullscreen.GetPixel(700, 150));
-          if (!moveDirection) NextDonationDown(fullscreen.GetPixel(700, 880));
+          if (!moveDirection) NextDonationDown(fullscreen.GetPixel(700, 910));
         }
         else
         {
-          moveDirection = !NextDonationDown(fullscreen.GetPixel(700, 880));
+          moveDirection = !NextDonationDown(fullscreen.GetPixel(700, 910));
           if (moveDirection) NextDonationUp(fullscreen.GetPixel(700, 150));
         }
 
@@ -191,32 +211,19 @@ namespace COCDonator
       Rectangle bounds = Screen.PrimaryScreen.Bounds;
       Bitmap fullscreen = CaptureScreen(bounds);
 
-      int x = 820;
-      int y = 150;
-      if (fullscreen.GetPixel(1530, 700).R == 200) // 1643, 45 // 254, 151, 154
+      int x = 870;
+      int y = 130;
+
+      Point ?p = FindExitButton();
+      if (p == null)
       {
-        FillTroops(x, y);
-        FillSpells(x, y + 400);
-        ClickPosition(1642, 45);
-      }
-      else if (fullscreen.GetPixel(1530, 730).R == 146) // 1643, 72 // 250, 111, 114
-      {
-        y += 69;
-        FillTroops(x, y);
-        FillSpells(x, y + 400);
-        ClickPosition(1642, 72);
-      }
-      else if (fullscreen.GetPixel(1530, 800).R == 177 || fullscreen.GetPixel(1530, 800).R == 173) // 1643, 135 // 251, 146, 149
-      {
-        y += 89;
-        FillTroops(x, y);
-        FillSpells(x, y + 400);
-        ClickPosition(1642, 135);
-      }
-      else
-      {
+        Console.WriteLine("Exit button not found");
         ClickPosition(1835, 40);
+        return;
       }
+      FillTroops(x, y + p.Value.Y - 17);
+      FillSpells(x - 20, y + 410 + p.Value.Y - 17);
+      ClickPosition(p.Value.X + 25, p.Value.Y + 25);
     }
 
     private void FillTroops(int x, int y)
@@ -238,33 +245,32 @@ namespace COCDonator
         // Click the position until it becomes gray
         while (!IsGray(fullPixel))
         {
-          if (!IsGray(fullscreen.GetPixel(770, 500))) return; // If donation window is closed
+          if (!IsGray(fullscreen.GetPixel(760, 400))) return; // If donation window is closed
 
           if (CountColor(fullPixel))
             ClickPosition(x, y);
           else break;
           Console.WriteLine(++sessionDonations);
           TroopsToRecruit++;
-          Thread.Sleep(50);
 
           fullscreen = CaptureScreen(bounds);
           fullPixel = fullscreen.GetPixel(x, y);
-          // Move to the next position in a zigzag pattern
-          if (movingDown)
-          {
-            // Move to the second row
-            y += 163;
-            movingDown = false;
-          }
-          else
-          {
-            // Move back to the first row and to the next column
-            y -= 163;
-            x += 127;
-            movingDown = true;
-          }
-          counter++;
         }
+        // Move to the next position in a zigzag pattern
+        if (movingDown)
+        {
+          // Move to the second row
+          y += 176;
+          movingDown = false;
+        }
+        else
+        {
+          // Move back to the first row and to the next column
+          y -= 176;
+          x += 137;
+          movingDown = true;
+        }
+        counter++;
       }
     }
 
@@ -286,19 +292,19 @@ namespace COCDonator
         // Click the position until it becomes gray
         while (!IsGray(fullPixel))
         {
-          if (!IsGray(fullscreen.GetPixel(770, 500))) return; // If donation window is closed
+          if (!IsGray(fullscreen.GetPixel(760, 400))) return; // If donation window is closed
 
           if (CountColor(fullPixel))
             ClickPosition(x, y);
           else break;
           Console.WriteLine(++sessionDonations);
           TroopsToRecruit++;
-          Thread.Sleep(50);
 
           fullscreen = CaptureScreen(bounds);
           fullPixel = fullscreen.GetPixel(x, y);
+          if (IsGray(fullPixel)) Console.WriteLine("Gray: " + fullPixel);
         }
-        x += 127;
+        x += 137;
         counter++;
       }
     }
@@ -308,91 +314,60 @@ namespace COCDonator
       // Match the color against known RGB values
       switch ((color.R, color.G, color.B))
       {
-        case var _ when IsColorMatch(color, 222, 208, 207): IncrementTroopCounter("Barbarian"); return true;
-        case var _ when IsColorMatch(color, 188, 115, 83): IncrementTroopCounter("Giant"); return true;
-        case var _ when IsColorMatch(color, 100, 92, 86): IncrementTroopCounter("Wallbreaker"); return true;
-        case var _ when IsColorMatch(color, 109, 99, 93): IncrementTroopCounter("Wallbreaker"); return true;
-        case var _ when IsColorMatch(color, 183, 164, 154): IncrementTroopCounter("Balloon"); return true;
-        case var _ when IsColorMatch(color, 176, 151, 141): IncrementTroopCounter("Balloon"); return true;
-        case var _ when IsColorMatch(color, 198, 160, 118): IncrementTroopCounter("Healer"); return true;
-        case var _ when IsColorMatch(color, 193, 153, 108): IncrementTroopCounter("Healer"); return true;
-        case var _ when IsColorMatch(color, 211, 203, 254): IncrementTroopCounter("Pekka"); return true;
-        case var _ when IsColorMatch(color, 158, 217, 248): IncrementTroopCounter("Pekka"); return true;
-        case var _ when IsColorMatch(color, 97, 65, 54): IncrementTroopCounter("Miner"); return true;
-        case var _ when IsColorMatch(color, 148, 160, 193): IncrementTroopCounter("Yeti"); return true;
-        case var _ when IsColorMatch(color, 254, 242, 250): IncrementTroopCounter("Etitan"); return true;
-        case var _ when IsColorMatch(color, 252, 235, 244): IncrementTroopCounter("Etitan"); return true;
-        case var _ when IsColorMatch(color, 16, 54, 89): IncrementTroopCounter("Minion"); return true;
-        case var _ when IsColorMatch(color, 107, 38, 21): IncrementTroopCounter("Valk"); return true;
-        case var _ when IsColorMatch(color, 126, 42, 20): IncrementTroopCounter("Valk"); return true;
-        case var _ when IsColorMatch(color, 135, 43, 19): IncrementTroopCounter("Valk"); return true;
-        case var _ when IsColorMatch(color, 101, 37, 21): IncrementTroopCounter("Valk"); return true;
-        case var _ when IsColorMatch(color, 115, 38, 20): IncrementTroopCounter("Valk"); return true;
-        case var _ when IsColorMatch(color, 100, 98, 233): IncrementTroopCounter("Witch"); return true;
-        case var _ when IsColorMatch(color, 117, 139, 255): IncrementTroopCounter("Witch"); return true;
-        case var _ when IsColorMatch(color, 40, 30, 72): IncrementTroopCounter("Witch"); return true;
-        case var _ when IsColorMatch(color, 49, 38, 87): IncrementTroopCounter("Witch"); return true;
-        case var _ when IsColorMatch(color, 53, 39, 92): IncrementTroopCounter("Witch"); return true;
-        case var _ when IsColorMatch(color, 191, 173, 189): IncrementTroopCounter("Lavahound"); return true;
-        case var _ when IsColorMatch(color, 72, 69, 76): IncrementTroopCounter("Lavahound"); return true;
-        case var _ when IsColorMatch(color, 239, 239, 230): IncrementTroopCounter("Icegolem"); return true;
-        case var _ when IsColorMatch(color, 232, 231, 220): IncrementTroopCounter("Icegolem"); return true;
-        case var _ when IsColorMatch(color, 212, 80, 255): IncrementTroopCounter("Apprentice"); return true;
-        case var _ when IsColorMatch(color, 209, 90, 170): IncrementTroopCounter("Archer"); return true;
-        case var _ when IsColorMatch(color, 119, 85, 56): IncrementTroopCounter("Goblin"); return true;
-        case var _ when IsColorMatch(color, 111, 93, 88): IncrementTroopCounter("Wizard"); return true;
-        case var _ when IsColorMatch(color, 152, 217, 246): IncrementTroopCounter("Wizard"); return true;
-        case var _ when IsColorMatch(color, 93, 33, 92): IncrementTroopCounter("Dragon"); return true;
-        case var _ when IsColorMatch(color, 90, 42, 111): IncrementTroopCounter("Dragon"); return true;
-        case var _ when IsColorMatch(color, 106, 188, 101): IncrementTroopCounter("Babydragon"); return true;
-        case var _ when IsColorMatch(color, 105, 185, 96): IncrementTroopCounter("Babydragon"); return true;
-        case var _ when IsColorMatch(color, 123, 177, 252): IncrementTroopCounter("Edragon"); return true;
-        case var _ when IsColorMatch(color, 145, 128, 113): IncrementTroopCounter("Dragonrider"); return true;
-        case var _ when IsColorMatch(color, 59, 41, 52): IncrementTroopCounter("Rootrider"); return true;
-        case var _ when IsColorMatch(color, 31, 25, 22): IncrementTroopCounter("Hogrider"); return true;
-        case var _ when IsColorMatch(color, 39, 38, 39): IncrementTroopCounter("Hogrider"); return true;
-        case var _ when IsColorMatch(color, 249, 255, 216): IncrementTroopCounter("Hogrider"); return true;
-        case var _ when IsColorMatch(color, 73, 78, 162): IncrementTroopCounter("Golem"); return true;
-        case var _ when IsColorMatch(color, 104, 118, 129): IncrementTroopCounter("Golem"); return true;
-        case var _ when IsColorMatch(color, 149, 179, 185): IncrementTroopCounter("Bowler"); return true;
-        case var _ when IsColorMatch(color, 85, 81, 130): IncrementTroopCounter("Headhunter"); return true;
-        case var _ when IsColorMatch(color, 188, 113, 76): IncrementTroopCounter("Druid"); return true;
-        case var _ when IsColorMatch(color, 169, 124, 124): IncrementTroopCounter("Druid"); return true;
+        case var _ when IsColorMatch(color, 255, 190, 136): IncrementTroopCounter("Barbarian"); Console.WriteLine("Barbarian"); return true;//
+        case var _ when IsColorMatch(color, 255, 184, 130): IncrementTroopCounter("Giant"); Console.WriteLine("Giant"); return true;//
+        case var _ when IsColorMatch(color, 124, 116, 101): IncrementTroopCounter("Wallbreaker"); Console.WriteLine("Wallbreaker"); return true;//
+        case var _ when IsColorMatch(color, 79, 65, 144): IncrementTroopCounter("Wallbreaker"); Console.WriteLine("Wallbreaker"); return true;//
+        case var _ when IsColorMatch(color, 131, 103, 91): IncrementTroopCounter("Balloon"); Console.WriteLine("Balloon"); return true;//
+        case var _ when IsColorMatch(color, 255, 212, 187): IncrementTroopCounter("Healer"); Console.WriteLine("Healer"); return true;//
+        case var _ when IsColorMatch(color, 70, 47, 38): IncrementTroopCounter("Pekka"); Console.WriteLine("Pekka"); return true;//
+        case var _ when IsColorMatch(color, 56, 55, 53): IncrementTroopCounter("Miner"); Console.WriteLine("Miner"); return true;//
+        case var _ when IsColorMatch(color, 90, 93, 130): IncrementTroopCounter("Yeti"); Console.WriteLine("Yeti"); return true;//
+        case var _ when IsColorMatch(color, 79, 82, 116): IncrementTroopCounter("Yeti"); Console.WriteLine("Yeti"); return true;//
+        case var _ when IsColorMatch(color, 67, 45, 45): IncrementTroopCounter("Etitan"); Console.WriteLine("Etitan"); return true;
+        case var _ when IsColorMatch(color, 46, 100, 139): IncrementTroopCounter("Minion"); Console.WriteLine("Minion"); return true;//
+        case var _ when IsColorMatch(color, 53, 96, 130): IncrementTroopCounter("Minion"); Console.WriteLine("Minion"); return true;//
+        case var _ when IsColorMatch(color, 81, 98, 108): IncrementTroopCounter("Valk"); Console.WriteLine("Valk"); return true;//
+        case var _ when IsColorMatch(color, 134, 47, 89): IncrementTroopCounter("Witch"); Console.WriteLine("Witch"); return true;//
+        case var _ when IsColorMatch(color, 133, 137, 152): IncrementTroopCounter("Lavahound"); Console.WriteLine("Lavahound"); return true;
+        case var _ when IsColorMatch(color, 239, 239, 230): IncrementTroopCounter("Icegolem"); Console.WriteLine("Icegolem"); return true;
+        case var _ when IsColorMatch(color, 255, 120, 26): IncrementTroopCounter("Apprentice"); Console.WriteLine("Apprentice"); return true;
+        case var _ when IsColorMatch(color, 32, 66, 83): IncrementTroopCounter("Archer"); Console.WriteLine("Archer"); return true;//
+        case var _ when IsColorMatch(color, 214, 227, 121): IncrementTroopCounter("Goblin"); Console.WriteLine("Goblin"); return true;//
+        case var _ when IsColorMatch(color, 255, 196, 171): IncrementTroopCounter("Wizard"); Console.WriteLine("Wizard"); return true;//
+        case var _ when IsColorMatch(color, 105, 203, 92): IncrementTroopCounter("Dragon"); Console.WriteLine("Dragon"); return true;//
+        case var _ when IsColorMatch(color, 113, 206, 99): IncrementTroopCounter("Babydragon"); Console.WriteLine("Babydragon"); return true;//
+        case var _ when IsColorMatch(color, 47, 91, 144): IncrementTroopCounter("Edragon"); Console.WriteLine("Edragon"); return true;
+        case var _ when IsColorMatch(color, 182, 174, 150): IncrementTroopCounter("Dragonrider"); Console.WriteLine("Dragonrider"); return true;
+        case var _ when IsColorMatch(color, 30, 33, 33): IncrementTroopCounter("Rootrider"); Console.WriteLine("Rootrider"); return true;//
+        case var _ when IsColorMatch(color, 161, 97, 63): IncrementTroopCounter("Hogrider"); Console.WriteLine("Hogrider"); return true;//
+        case var _ when IsColorMatch(color, 87, 33, 78): IncrementTroopCounter("Golem"); Console.WriteLine("Golem"); return true;
+        case var _ when IsColorMatch(color, 170, 155, 245): IncrementTroopCounter("Bowler"); Console.WriteLine("Bowler"); return true;//
+        case var _ when IsColorMatch(color, 130, 106, 145): IncrementTroopCounter("Headhunter"); Console.WriteLine("Headhunter"); return true;//
+        case var _ when IsColorMatch(color, 183, 83, 80): IncrementTroopCounter("Druid"); Console.WriteLine("Druid"); return true;//
 
-        case var _ when IsColorMatch(color, 209, 174, 164): IncrementTroopCounter("Superwallbreaker"); return true;
-        case var _ when IsColorMatch(color, 196, 175, 193): IncrementTroopCounter("Superwitch"); return true;
+        case var _ when IsColorMatch(color, 121, 176, 246): IncrementTroopCounter("Superwallbreaker"); Console.WriteLine("Superwallbreaker"); return true;//
+        case var _ when IsColorMatch(color, 196, 175, 193): IncrementTroopCounter("Superwitch"); Console.WriteLine("Superwitch"); return true;
 
-        case var _ when IsColorMatch(color, 68, 236, 255): IncrementSpellCounter("Lightning"); return true;
-        case var _ when IsColorMatch(color, 249, 249, 252): IncrementSpellCounter("Rage"); return true;
-        case var _ when IsColorMatch(color, 212, 219, 238): IncrementSpellCounter("Rage"); return true;
-        case var _ when IsColorMatch(color, 88, 252, 255): IncrementSpellCounter("Freeze"); return true;
-        case var _ when IsColorMatch(color, 138, 210, 192): IncrementSpellCounter("Invis"); return true;
-        case var _ when IsColorMatch(color, 240, 118, 18): IncrementSpellCounter("Poison"); return true;
-        case var _ when IsColorMatch(color, 244, 124, 18): IncrementSpellCounter("Poison"); return true;
-        case var _ when IsColorMatch(color, 254, 217, 242): IncrementSpellCounter("Haste"); return true;
-        case var _ when IsColorMatch(color, 226, 217, 246): IncrementSpellCounter("Bats"); return true;
-        case var _ when IsColorMatch(color, 138, 138, 181): IncrementSpellCounter("Bats"); return true;
-        case var _ when IsColorMatch(color, 200, 181, 139): IncrementSpellCounter("Heal"); return true;
-        case var _ when IsColorMatch(color, 247, 239, 196): IncrementSpellCounter("Heal"); return true;
-        case var _ when IsColorMatch(color, 255, 255, 239): IncrementSpellCounter("Jump"); return true;
-        case var _ when IsColorMatch(color, 250, 255, 230): IncrementSpellCounter("Jump"); return true;
-        case var _ when IsColorMatch(color, 148, 167, 204): IncrementSpellCounter("Clone"); return true;
-        case var _ when IsColorMatch(color, 222, 149, 191): IncrementSpellCounter("Recall"); return true;
-        case var _ when IsColorMatch(color, 255, 252, 255): IncrementSpellCounter("Recall"); return true;
-        case var _ when IsColorMatch(color, 81, 65, 52): IncrementSpellCounter("Earthquake"); return true;
-        case var _ when IsColorMatch(color, 69, 60, 51): IncrementSpellCounter("Earthquake"); return true;
-        case var _ when IsColorMatch(color, 203, 53, 50): IncrementSpellCounter("Skeleton"); return true;
-        case var _ when IsColorMatch(color, 245, 160, 153): IncrementSpellCounter("Skeleton"); return true;
-        case var _ when IsColorMatch(color, 238, 126, 119): IncrementSpellCounter("Skeleton"); return true;
-        case var _ when IsColorMatch(color, 145, 178, 84): IncrementSpellCounter("Overgrowth"); return true;
-        case var _ when IsColorMatch(color, 51, 23, 15): IncrementSpellCounter("Overgrowth"); return true;
-        case var _ when IsColorMatch(color, 73, 56, 36): IncrementSpellCounter("Overgrowth"); return true;
+        case var _ when IsColorMatch(color, 14, 108, 255): IncrementSpellCounter("Lightning"); Console.WriteLine("Lightning"); return true;
+        case var _ when IsColorMatch(color, 248, 229, 245): IncrementSpellCounter("Rage"); Console.WriteLine("Rage"); return true;//
+        case var _ when IsColorMatch(color, 137, 221, 253): IncrementSpellCounter("Freeze"); Console.WriteLine("Freeze"); return true;//
+        case var _ when IsColorMatch(color, 141, 211, 207): IncrementSpellCounter("Invis"); Console.WriteLine("Invis"); return true;//
+        case var _ when IsColorMatch(color, 255, 129, 23): IncrementSpellCounter("Poison"); Console.WriteLine("Poison"); return true;
+        case var _ when IsColorMatch(color, 252, 104, 171): IncrementSpellCounter("Haste"); Console.WriteLine("Haste"); return true;
+        case var _ when IsColorMatch(color, 78, 45, 107): IncrementSpellCounter("Bats"); Console.WriteLine("Bats"); return true;
+        case var _ when IsColorMatch(color, 255, 255, 237): IncrementSpellCounter("Heal"); Console.WriteLine("Heal"); return true;
+        case var _ when IsColorMatch(color, 77, 186, 29): IncrementSpellCounter("Jump"); Console.WriteLine("Jump"); return true;
+        case var _ when IsColorMatch(color, 30, 216, 221): IncrementSpellCounter("Clone"); Console.WriteLine("Clone"); return true;
+        case var _ when IsColorMatch(color, 222, 149, 191): IncrementSpellCounter("Recall"); Console.WriteLine("Recall"); return true;
+        case var _ when IsColorMatch(color, 148, 116, 88): IncrementSpellCounter("Earthquake"); Console.WriteLine("Earthquake"); return true;//
+        case var _ when IsColorMatch(color, 145, 25, 27): IncrementSpellCounter("Skeleton"); Console.WriteLine("Skeleton"); return true;
+        case var _ when IsColorMatch(color, 115, 147, 39): IncrementSpellCounter("Overgrowth"); Console.WriteLine("Overgrowth"); return true;
 
-        case var _ when IsColorMatch(color, 91, 43, 13): IncrementSiegeCounter("Flameflinger"); return true;
-        case var _ when IsColorMatch(color, 235, 118, 122): IncrementSiegeCounter("Blimp"); return true;
-        case var _ when IsColorMatch(color, 75, 75, 84): IncrementSiegeCounter("Loglauncher"); return true;
-        case var _ when IsColorMatch(color, 75, 74, 78): IncrementSiegeCounter("Loglauncher"); return true;
-        case var _ when IsColorMatch(color, 70, 67, 69): IncrementSiegeCounter("Loglauncher"); return true;
+        case var _ when IsColorMatch(color, 122, 127, 134): IncrementSiegeCounter("Flameflinger"); Console.WriteLine("Flameflinger"); return true;
+        case var _ when IsColorMatch(color, 229, 92, 78): IncrementSiegeCounter("Blimp"); Console.WriteLine("Blimp"); return true;
+        case var _ when IsColorMatch(color, 129, 31, 20): IncrementSiegeCounter("Loglauncher"); Console.WriteLine("Loglauncher"); return true;
+
 
         default:
           Console.WriteLine("Unknown color encountered: " + color);
@@ -409,7 +384,6 @@ namespace COCDonator
 
     void NavigateToTrainTroops()
     {
-      Thread.Sleep(2000);
       ClickPosition(800, 500);
       ClickPosition(100, 800);
       ClickPosition(600, 100);
@@ -422,18 +396,18 @@ namespace COCDonator
 
     void NavigateToChat()
     {
-      ClickPosition(1650, 100);
+      ClickPosition(1700, 100);
       ClickPosition(100, 500);
     }
 
     void ScrollToRight()
     {
-      Drag(1645, 740, 250, 740);
+      Drag(1700, 765, 200, 765);
     }
 
     void ScrollToLeft()
     {
-      Drag(250, 740, 1645, 740);
+      Drag(200, 765, 1700, 765);
     }
 
     void TrainTroops()
@@ -447,26 +421,27 @@ namespace COCDonator
 
         if (count != 0)
         {
-          Point? position = SearchRows(0, key, troopColors);
+          Point? position = SearchRows(646, key, troopColors);
 
           if (position == null)
           {
-            position = SearchRows(1, key, troopColors);
+            position = SearchRows(646 + 198, key, troopColors);
           }
 
           if (position == null)
           {
             ScrollToRight();
-            position = SearchRows(0, key, troopColors);
+            position = SearchRows(646, key, troopColors);
           }
 
           if (position == null)
           {
-            position = SearchRows(1, key, troopColors);
+            position = SearchRows(646 + 198, key, troopColors);
           }
 
           if (position == null)
           {
+            ScrollToLeft();
             Console.WriteLine("Troop " + key + " not found when trying to recruit");
             continue;
           }
@@ -493,11 +468,11 @@ namespace COCDonator
 
         if (count != 0)
         {
-          Point? position = SearchRows(0, key, spellColors);
+          Point? position = SearchRows(690, key, spellColors);
 
           if (position == null)
           {
-            position = SearchRows(1, key, spellColors);
+            position = SearchRows(690 + 198, key, spellColors);
           }
 
           if (position == null)
@@ -516,9 +491,8 @@ namespace COCDonator
       }
     }
 
-    Point? SearchRows(int rowNum, string key, Dictionary<string, (Color Color, int Count)> colorDictionary)
+    Point? SearchRows(int y, string key, Dictionary<string, (Color Color, int Count)> colorDictionary)
     {
-      int y = 646 + (rowNum * 187);
       Rectangle captureArea = new Rectangle(0, y, 1920, 1);
       Bitmap image = CaptureScreen(captureArea);
 
@@ -609,12 +583,55 @@ namespace COCDonator
       return bitmap;
     }
 
+    Point? FindExitButton()
+    {
+      // Capture the screen section where we expect to find the button
+      Bitmap fullscreen = CaptureScreen(new Rectangle(1697, 17, 5, 1080));
+      Image buttonImage = Properties.Resources.ResourceManager.GetObject("exit_button") as Image;
+      Bitmap exitButton = new Bitmap(buttonImage);
+
+      int searchWidth = exitButton.Width;
+      int searchHeight = exitButton.Height;
+      int fullscreenHeight = fullscreen.Height;
+
+      // Iterate through each vertical position in the captured screen area
+      for (int y = 0; y <= fullscreenHeight - searchHeight; y++)
+      {
+        bool matchFound = true;
+
+        // Compare each pixel in the area of fullscreen with exitButton
+        for (int i = 0; i < searchHeight; i++)
+        {
+          for (int x = 0; x < searchWidth; x++)
+          {
+            Color screenPixel = fullscreen.GetPixel(x, y + i);
+            Color buttonPixel = exitButton.GetPixel(x, i);
+
+            if (!IsColorMatch(screenPixel, buttonPixel.R, buttonPixel.G, buttonPixel.B, 20))
+            {
+              matchFound = false;
+              break;
+            }
+          }
+
+          if (!matchFound)
+            break;
+        }
+
+        // If a match is found, return the top-left position of the match
+        if (matchFound)
+          return new Point(1687, 17 + y);
+      }
+
+      // Return null if no match is found
+      return null;
+    }
+
     bool NextDonationUp(Color color)
     {
-      if (color.R == 163 && color.G == 215 && color.B == 17)
+      if (color.R == 127)
       {
         ClickPosition(700, 150);
-        Thread.Sleep(500);
         return true;
       }
       return false;
@@ -622,10 +639,9 @@ namespace COCDonator
 
     bool NextDonationDown(Color color)
     {
-      if (color.R == 162 && color.G == 213 && color.B == 15)
+      if (color.R == 137)
       {
-        ClickPosition(700, 880);
-        Thread.Sleep(500);
+        ClickPosition(700, 910);
         return true;
       }
       return false;
@@ -633,28 +649,49 @@ namespace COCDonator
 
     void GetPictures()
     {
-      int topLeftX = 291;
-      int topLeftY = 646;
+      int topLeftX = 260; //Troops: 291 Spells: 260
+      int topLeftY = 690; //Troops: 646 Spells: 690
 
-      for (int i = 0; i < 8; i++)
+      //for (int i = 0; i < 8; i++)
+      //{
+      //  Rectangle captureArea = new Rectangle(topLeftX + 192 * i, topLeftY, 1, 1);
+      //  Bitmap image = CaptureScreen(captureArea);
+
+      //  Color pixelColor = image.GetPixel(0, 0);
+      //  Console.WriteLine($"Top Row {i}: RGB = {pixelColor.R}, {pixelColor.G}, {pixelColor.B}");
+      //  Thread.Sleep(100);
+      //}
+
+      //for (int i = 0; i < 8; i++)
+      //{
+      //  Rectangle captureArea = new Rectangle(topLeftX + 192 * i, topLeftY + 198, 1, 1);
+      //  Bitmap image = CaptureScreen(captureArea);
+
+      //  Color pixelColor = image.GetPixel(0, 0);
+      //  Console.WriteLine($"Bottom Row {i}: RGB = {pixelColor.R}, {pixelColor.G}, {pixelColor.B}");
+      //  Thread.Sleep(100);
+      //}
+
+      //ScrollToRight();
+
+      for (int i = 0; i < 7; i++)
       {
-        Rectangle captureArea = new Rectangle(topLeftX + 181 * i, topLeftY, 1, 1);
+        Rectangle captureArea = new Rectangle(topLeftX + 192 * i, topLeftY, 1, 1);
         Bitmap image = CaptureScreen(captureArea);
 
         Color pixelColor = image.GetPixel(0, 0);
         Console.WriteLine($"Top Row {i}: RGB = {pixelColor.R}, {pixelColor.G}, {pixelColor.B}");
-
-        image.Save("screenshotTop" + i + ".png", ImageFormat.Png);
-        Thread.Sleep(500);
+        Thread.Sleep(100);
       }
 
-      for (int i = 0; i < 8; i++)
+      for (int i = 0; i < 7; i++)
       {
-        Rectangle captureArea = new Rectangle(topLeftX + 181 * i, topLeftY + 187, 10, 10);
+        Rectangle captureArea = new Rectangle(topLeftX + 192 * i, topLeftY + 198, 1, 1);
         Bitmap image = CaptureScreen(captureArea);
 
-        image.Save("screenshotBottom" + i + ".png", ImageFormat.Png);
-        Thread.Sleep(500);
+        Color pixelColor = image.GetPixel(0, 0);
+        Console.WriteLine($"Bottom Row {i}: RGB = {pixelColor.R}, {pixelColor.G}, {pixelColor.B}");
+
       }
     }
   }
