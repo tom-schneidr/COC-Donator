@@ -118,7 +118,154 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Apprentice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Apprentice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Archer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Archer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Babydragon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Babydragon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Balloon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Balloon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Barbarian" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Barbarian.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bats" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Bats.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Blimp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Blimp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bowler" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Bowler.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Clone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Clone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dragon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Dragon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dragonrider" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Dragonrider.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Druid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Druid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Earthquake" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Earthquake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Edragon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Edragon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Etitan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Etitan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="exit_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\exit_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FlameFlinger" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\FlameFlinger.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Freeze" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Freeze.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Giant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Giant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Goblin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Goblin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Golem" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Golem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Haste" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Haste.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Headhunter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Headhunter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Heal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Heal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Healer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Healer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hogrider" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Hogrider.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icegolem" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Icegolem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Invis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Invis.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Jump" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Jump.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lavahound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Lavahound.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lightning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Lightning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LogLauncher" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\LogLauncher.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Miner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Miner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Minion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Minion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Overgrowth" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Overgrowth.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pekka" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Pekka.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Poison" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Poison.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Rage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Recall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Recall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rootrider" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Rootrider.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SiegeBarracks" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\SiegeBarracks.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Skeleton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Skeleton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StoneSlammer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\StoneSlammer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SuperArcher" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\SuperArcher.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Valk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Valk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wallbreaker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Wallbreaker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WallWrecker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\WallWrecker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Witch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Witch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wizard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Wizard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Yeti" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Yeti.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

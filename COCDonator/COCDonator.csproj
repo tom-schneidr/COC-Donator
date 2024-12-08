@@ -261,5 +261,26 @@
   <ItemGroup>
     <None Include="imgs\exit_button.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\Blimp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\FlameFlinger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\LogLauncher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\SiegeBarracks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\StoneSlammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\SuperArcher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\WallWrecker.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
