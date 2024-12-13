@@ -503,6 +503,16 @@ namespace COCDonator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Thrower {
+            get {
+                object obj = ResourceManager.GetObject("Thrower", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Valk {
             get {
                 object obj = ResourceManager.GetObject("Valk", resourceCulture);

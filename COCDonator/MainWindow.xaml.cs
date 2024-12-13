@@ -82,6 +82,7 @@ namespace COCDonator
       { "Bowler", (Properties.Resources.Bowler, 0) },
       { "Headhunter", (Properties.Resources.Headhunter, 0) },
       { "Druid", (Properties.Resources.Druid, 0) },
+      { "Thrower", (Properties.Resources.Thrower, 0) },
       { "SuperArcher", (Properties.Resources.SuperArcher, 0) }
     };
 
@@ -170,6 +171,7 @@ namespace COCDonator
           Color fullPixel = fullscreen.GetPixel(480, y);
           if (IsColorMatch(fullPixel, 221, 246, 133))
           {
+            if (!IsColorMatch(GetPixelColor(480, y), 221, 246, 133)) continue;
             ClickPosition(480, y);
             DonateTroops();
             y += 50;
@@ -445,6 +447,7 @@ namespace COCDonator
         case var _ when IsColorMatch(color, 244, 157, 119): IncrementSpellCounter("Poison"); Console.WriteLine("Poison"); return true;//
         case var _ when IsColorMatch(color, 245, 147, 106): IncrementSpellCounter("Poison"); Console.WriteLine("Poison"); return true;//
         case var _ when IsColorMatch(color, 245, 142, 99): IncrementSpellCounter("Poison"); Console.WriteLine("Poison"); return true;//
+        case var _ when IsColorMatch(color, 247, 124, 67): IncrementSpellCounter("Poison"); Console.WriteLine("Poison"); return true;//
         case var _ when IsColorMatch(color, 252, 104, 171): IncrementSpellCounter("Haste"); Console.WriteLine("Haste"); return true;
         case var _ when IsColorMatch(color, 78, 45, 107): IncrementSpellCounter("Bats"); Console.WriteLine("Bats"); return true;
         case var _ when IsColorMatch(color, 255, 255, 237): IncrementSpellCounter("Heal"); Console.WriteLine("Heal"); return true;
@@ -562,7 +565,7 @@ namespace COCDonator
 
       for (int j = 0; j < keys.Count; j++)
       {
-        bool scrolled = false;
+        int scrolled = 0;
         string key = keys[j];
         int count = troopImages[key].Count;
 
@@ -572,28 +575,43 @@ namespace COCDonator
           Color disconnectColorCheck = GetPixelColor(100, 500);
           if (disconnectColorCheck.R == 25 && disconnectColorCheck.G == 28 && disconnectColorCheck.B == 30) return;
 
-          Point? position = SearchRows(650, troopImages[key].Image);
+          Point? position = SearchRows(620, troopImages[key].Image);
 
           if (position == null)
           {
-            position = SearchRows(650 + 171, troopImages[key].Image);
+            position = SearchRows(620 + 171, troopImages[key].Image);
           }
 
           if (position == null)
           {
             ScrollToRight();
-            scrolled = true;
-            position = SearchRows(650, troopImages[key].Image);
+            scrolled++;
+            position = SearchRows(620, troopImages[key].Image);
           }
 
           if (position == null)
           {
-            position = SearchRows(650 + 171, troopImages[key].Image);
+            position = SearchRows(620 + 171, troopImages[key].Image);
           }
 
           if (position == null)
           {
-            ScrollToLeft();
+            ScrollToRight();
+            scrolled++;
+            position = SearchRows(620, troopImages[key].Image);
+          }
+
+          if (position == null)
+          {
+            position = SearchRows(620 + 171, troopImages[key].Image);
+          }
+
+          if (position == null)
+          {
+            for (int i = 0; i < scrolled; i++)
+            {
+              ScrollToLeft();
+            }
             Dispatcher.Invoke(() => LogTextBox.AppendText("Troop " + key + " not found when trying to recruit\n"));
             troopsNotFound++;
             continue;
@@ -605,7 +623,10 @@ namespace COCDonator
           }
 
           troopImages[key] = (troopImages[key].Image, 0);
-          if (scrolled) ScrollToLeft();
+          for (int i = 0; i < scrolled; i++)
+          {
+            ScrollToLeft();
+          }
         }
       }
       if (troopsNotFound >= 3 && (DateTime.Now - lastNotFoundTime).TotalMinutes >= 15)
@@ -633,11 +654,11 @@ namespace COCDonator
           Color disconnectColorCheck = GetPixelColor(100, 500);
           if (disconnectColorCheck.R == 25 && disconnectColorCheck.G == 28 && disconnectColorCheck.B == 30) return;
 
-          Point? position = SearchRows(650, spellImages[key].Image);
+          Point? position = SearchRows(620, spellImages[key].Image);
 
           if (position == null)
           {
-            position = SearchRows(650 + 171, spellImages[key].Image);
+            position = SearchRows(620 + 171, spellImages[key].Image);
           }
 
           if (position == null)
@@ -672,13 +693,13 @@ namespace COCDonator
           Color disconnectColorCheck = GetPixelColor(100, 500);
           if (disconnectColorCheck.R == 25 && disconnectColorCheck.G == 28 && disconnectColorCheck.B == 30) return;
 
-          Point? position = SearchRows(650, siegeImages[key].Image, 30, 0.5);
+          Point? position = SearchRows(620, siegeImages[key].Image);
 
           if (position == null)
           {
             ScrollToRight();
             scrolled = true;
-            position = SearchRows(650, siegeImages[key].Image, 30, 0.5);
+            position = SearchRows(620, siegeImages[key].Image);
           }
 
           if (position == null)
@@ -699,58 +720,55 @@ namespace COCDonator
       }
     }
 
-    Point? SearchRows(int y, Bitmap searchedBitmap, int tolerance = 50, double matchPercentage = 0.5)
+    Point? SearchRows(int y, Bitmap searchedBitmap, int tolerance = 15, double matchPercentage = 0.8)
     {
       int searchWidth = searchedBitmap.Width;
       int searchHeight = searchedBitmap.Height;
 
       // Define the capture area based on the height of the searchedBitmap
-      Rectangle captureArea = new Rectangle(0, y, 1920, 20);
-      Bitmap image = ScreenCapture.CaptureScreen(captureArea);
+      Rectangle captureArea = new Rectangle(0, y, 1920, searchHeight);
+      using Bitmap screenBitmap = ScreenCapture.CaptureScreen(captureArea);
 
+      // Precompute pixel differences for the searched bitmap
+      int totalPixels = searchWidth * searchHeight;
+      int requiredMatches = (int)(totalPixels * matchPercentage);
 
-      // Loop through each potential starting point in the row (sliding window)
-      for (int x = 0; x < image.Width - searchWidth; x++)
+      // Loop through each starting point in the row (sliding window)
+      for (int x = 0; x <= screenBitmap.Width - searchWidth; x++)
       {
-        bool isMatch = true;
         int matchingPixelCount = 0;
 
-        // Loop through each pixel in the searchedBitmap and compare with the captured image
+        // Compare blocks of pixels instead of individual pixels
         for (int py = 0; py < searchHeight; py++)
         {
           for (int px = 0; px < searchWidth; px++)
           {
-            Color capturedPixel = image.GetPixel(x + px, py);
+            // Get pixels from both images
+            Color capturedPixel = screenBitmap.GetPixel(x + px, py);
             Color searchedPixel = searchedBitmap.GetPixel(px, py);
 
-            // Compare the pixels based on the tolerance
-            if (!AreColorsSimilar(capturedPixel, searchedPixel, tolerance))
-            {
-              isMatch = false;
-              break;
-            }
-            else
+            // Compare the pixel with the tolerance
+            if (AreColorsSimilar(capturedPixel, searchedPixel, tolerance))
             {
               matchingPixelCount++;
             }
-          }
 
-          if (!isMatch) break;
+            // Early exit if we don't meet the required match percentage
+            if (totalPixels - (px + py * searchWidth) + matchingPixelCount < requiredMatches)
+            {
+              break;
+            }
+          }
         }
 
-        // Calculate the percentage of pixels that match
-        double matchRatio = (double)matchingPixelCount / (searchWidth * searchHeight);
-        
-
-        if (matchRatio >= matchPercentage)
+        // If sufficient matching pixels are found
+        if (matchingPixelCount >= requiredMatches)
         {
-          image.Dispose();
-          return new Point(x, y);  // Return the starting point of the match
+          return new Point(x, y); // Return the starting point of the match
         }
       }
 
-      image.Dispose();
-      return null;  // No match found
+      return null; // No match found
     }
 
     // Helper function to compare two colors with a tolerance
@@ -945,14 +963,17 @@ namespace COCDonator
     void GetPictures()
     {
       NavigateToTrainTroops();
-      int topLeftX = 380;
-      int topLeftY = 650;
+      int topLeftX = 350;
+      int topLeftY = 620;
 
       SaveTroopImages(topLeftX, topLeftY, 8, 166, troopImages, "Top Troops");
       SaveTroopImages(topLeftX, topLeftY + 171, 8, 166, troopImages, "Bottom Troops");
       ScrollToRight();
       SaveTroopImages(topLeftX, topLeftY, 8, 166, troopImages, "Top Troops 2");
       SaveTroopImages(topLeftX, topLeftY + 171, 8, 166, troopImages, "Bottom Troops 2");
+      ScrollToRight();
+      SaveTroopImages(topLeftX, topLeftY, 8, 166, troopImages, "Top Troops 3");
+      SaveTroopImages(topLeftX, topLeftY + 171, 8, 166, troopImages, "Bottom Troops 3");
 
       NavigateFromTroopsToTrainSpells();
       SaveTroopImages(topLeftX, topLeftY, 8, 166, spellImages, "Top Spells");
@@ -969,7 +990,7 @@ namespace COCDonator
       for (int i = 0; i < count; i++)
       {
         // Define the capture area for a 20x20 region
-        Rectangle captureArea = new Rectangle(startX + stepX * i, startY, 20, 20);
+        Rectangle captureArea = new Rectangle(startX + stepX * i, startY, 50, 50);
         Bitmap image = ScreenCapture.CaptureScreen(captureArea);
 
         // Save the image to the current directory with a unique name

@@ -282,5 +282,8 @@
   <ItemGroup>
     <None Include="imgs\WallWrecker.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\Thrower.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
